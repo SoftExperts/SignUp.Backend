@@ -17,11 +17,12 @@ namespace SignUp.Backend.Controllers
         }
 
         [HttpPost]
-        public async Task RegisterUser(UserDto userDto)
+        public async Task<IActionResult> RegisterUser(UserDto userDto)
         {
             try
             {
                 await _authService.RegisterUser(userDto);
+                return Ok("Successfully User Registered!");
             }
             catch (Exception)
             {

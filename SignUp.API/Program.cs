@@ -31,18 +31,14 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
     options.Password.RequireUppercase = true;
     options.Password.RequireNonAlphanumeric = true;
 })
-//Adding Entity Framework Core stores for the identity system,
-//using the specified DbContext (SignUpDb) for the data access.
 .AddEntityFrameworkStores<AppDbContext>()
-//Adding the default token providers for the identity system.
-//Token providers are responsible for generating and validating tokens,
-//such as password reset and email confirmation tokens.
 .AddDefaultTokenProviders();
 
 builder.Services.AddAndConfigureRepositories();
 builder.Services.AddAndConfigureServices();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -54,6 +50,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(options => options.WithOrigins("www.example.com").AllowAnyMethod().AllowAnyHeader());
 
 app.MapControllers();
 

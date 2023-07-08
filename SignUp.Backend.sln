@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{F86C37
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignUp.UI", "SignUp.UI\SignUp.UI.csproj", "{4F3E2E85-189F-4BFA-AF70-E07EE512C1E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F3E2E85-189F-4BFA-AF70-E07EE512C1E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F3E2E85-189F-4BFA-AF70-E07EE512C1E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F3E2E85-189F-4BFA-AF70-E07EE512C1E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F3E2E85-189F-4BFA-AF70-E07EE512C1E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
