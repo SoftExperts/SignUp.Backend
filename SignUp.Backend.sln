@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignUp.Backend", "SignUp.API\SignUp.Backend.csproj", "{CB5BAEA4-37BE-4024-B687-57809D2AAAB2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{F86C37FE-2342-4F1F-AFDE-89D6D26CF87D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{CB5BAEA4-37BE-4024-B687-57809D2AAAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB5BAEA4-37BE-4024-B687-57809D2AAAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB5BAEA4-37BE-4024-B687-57809D2AAAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,7 @@ Global
 		{ED1AE502-AF69-4EAE-9041-D9F62B1A5A70} = {F3A4339B-8BDE-4C35-B11E-355ED8FFB586}
 		{0DB26B52-9440-413B-9FB9-EFDCE2C779B4} = {88198F4A-3031-45A1-AFFD-278413638B63}
 		{D0F16FE0-928C-440C-9971-2399A2D7A140} = {88198F4A-3031-45A1-AFFD-278413638B63}
+		{A8705D4F-4CC8-4EC3-9CF5-CBBF0D36BCEA} = {F86C37FE-2342-4F1F-AFDE-89D6D26CF87D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E06B026C-0560-441B-AFDD-FA1F70F9018B}
