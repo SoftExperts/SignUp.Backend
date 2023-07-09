@@ -5,18 +5,28 @@ using Services.Auth;
 
 namespace SignUp.Backend.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("v{v:apiVersion}/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthController"/> class.
+        /// </summary>
+        /// <param name="authService">The authentication service implementation.</param>
         public AuthController(IAuthService authService)
         {
-              _authService = authService;
+            _authService = authService;
         }
 
-        [HttpPost]
+        /// <summary>
+        /// Registers a new user.
+        /// </summary>
+        /// <param name="userDto">The user data transfer object containing registration information.</param>
+        /// <returns>An IActionResult representing the result of the registration operation.</returns>
+        [HttpPost("register")]
         public async Task<IActionResult> RegisterUser(UserDto userDto)
         {
             try
@@ -24,10 +34,9 @@ namespace SignUp.Backend.Controllers
                 await _authService.RegisterUser(userDto);
                 return Ok("Successfully User Registered!");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(ex.Message);
             }
         }
     }

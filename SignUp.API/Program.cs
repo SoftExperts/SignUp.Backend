@@ -10,39 +10,57 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Enable Swagger/OpenAPI documentation generation.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// This code will create the Database in MSSQL Server.
+//Configure API Versioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.ReportApiVersions = true;
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+
+});
+
+builder.Services.AddVersionedApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV";
+    options.SubstituteApiVersionInUrl = true;
+});
+
+// Configure the database context with the connection string.
 builder.Services.AddDbContext<AppDbContext>(dbOptions =>
-dbOptions.UseSqlServer(builder.Configuration.GetConnectionString("SignUpDb"))
+    dbOptions.UseSqlServer(builder.Configuration.GetConnectionString("SignUpDb"))
 );
 
-//The code is passing in a lambda expression to the AddIdentity method
-//that configures various options for the identity system.
-
+// Configure Identity with options for password requirements and storage.
 builder.Services.AddIdentity<User, IdentityRole>(options =>
 {
-    //The options include:
+    // Password requirements
     options.Password.RequireDigit = true;
     options.Password.RequiredLength = 8;
     options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
     options.Password.RequireNonAlphanumeric = true;
 })
-.AddEntityFrameworkStores<AppDbContext>()
-.AddDefaultTokenProviders();
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
+// Add and configure repositories.
 builder.Services.AddAndConfigureRepositories();
+
+// Add and configure services.
 builder.Services.AddAndConfigureServices();
 
 var app = builder.Build();
 
-
 // Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
+    // Enable Swagger UI for API documentation.
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -51,8 +69,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseCors(options => options.WithOrigins("www.example.com").AllowAnyMethod().AllowAnyHeader());
+// Enable CORS for specific origins, methods, and headers.
+app.UseCors(options => options.WithOrigins("https://localhost:7141/").AllowAnyMethod().AllowAnyHeader());
 
+// Map controllers for handling API endpoints.
 app.MapControllers();
 
 app.Run();
